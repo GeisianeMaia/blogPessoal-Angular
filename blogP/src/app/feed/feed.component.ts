@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TestabilityRegistry } from '@angular/core';
+import { PostagemService } from '../service/postagem.service';
+import { Postagem } from '../model/postagem';
 
 @Component({
   selector: 'app-feed',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedComponent implements OnInit {
 
-  constructor() { }
+  listaPostagens: Postagem[]
+
+  constructor(private postagemService: PostagemService) { }
 
   ngOnInit(): void {
+    this.findallPostagens()
   }
-
+  findallPostagens(){
+    this.postagemService.getAllPostagens().subscribe((resp: Postagem[])=>{
+      this.listaPostagens = resp
+    })
+  }
 }
