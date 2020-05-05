@@ -20,6 +20,9 @@ export class FeedComponent implements OnInit {
 
   ngOnInit(): void {
     this.findallPostagens()
+
+    window.scroll(0, 0)
+    // usado para fazer o botão feed ir para parte de cima da página feed
   }
   findallPostagens(){
     this.postagemService.getAllPostagens().subscribe((resp: Postagem[])=>{
