@@ -25,4 +25,9 @@ export class PostagemService {
   getByIdPostagem(id:number){
     return this.http.get(`http://31.220.57.14:8080/postagens/${id}`)
   }
+
+  deletePostagem(id:number){
+    return this.http.delete(`http://31.220.57.14:8080/postagens/${id}`)
+  }
+
 }
