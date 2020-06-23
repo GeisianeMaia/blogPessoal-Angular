@@ -6,7 +6,7 @@
             <div class="card border-0" style="width: 18rem;">
                 <div class="d-flex justify-content-center"> <img src="../../assets/img/eu.jpg" class="card-img-top rounded-circle w-75" alt="Imagem card"></div>
                 <div class="card-body">
-                    <h5 class="card-title text-center">Geisiane Maia</h5>
+                    <h5 class="card-title text-center">{{nome}}</h5>
                     <p class="card-text text-center">Estudante do Bootcamp Desenvolvedor Java, da Generation Brasil.</p>
                     <a href="https://www.linkedin.com/in/geisiane-maia/" class="btn btn-outline-info d-flex justify-content-center mb-3" target="_blank">Linkedin</a>
                     <a href="https://github.com/GeisianeMaia" class="btn btn-outline-dark d-flex justify-content-center" target="_blank">GitHub</a>
@@ -24,16 +24,16 @@
 
         <div class="col-md-8">
             <div>
-                <h3 class="text-center mb-4 text-monospace">Como tem sido minha experiência na Generation</h3>
+                <h3 class="text-center mb-4 text-monospace">Como tem sido minha experiência na Generation?</h3>
 
 
                 <div class="form-group">
-                    <label for="titulo" class="text-monospace">Nome</label>
-                    <input type="text" name="titulo" id="titulo" class="form-control" placeholder='Digite seu nome' [(ngModel)]="postagem.titulo">
+                    <label for="titulo" class="text-monospace">Título</label>
+                    <input type="text" name="titulo" id="titulo" class="form-control" placeholder='Digite aqui seu título' [(ngModel)]="postagem.titulo">
                 </div>
                 <div class="form-group">
-                    <label for="texto">Texto:</label>
-                    <textarea name="texti" id="texto" cols="30" rows="5" class="form-control" placeholder="Digite a descrição do seu produto" [(ngModel)]="postagem.texto"></textarea>
+                    <label for="texto">Texto</label>
+                    <textarea name="texti" id="texto" cols="30" rows="5" class="form-control" placeholder="Digite aqui seu texto" [(ngModel)]="postagem.texto"></textarea>
                 </div>
                 <!-- <div class="form-group">
                     <label for="titulo" class="text-monospace">Preço</label>

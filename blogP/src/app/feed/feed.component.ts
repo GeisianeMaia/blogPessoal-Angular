@@ -1,6 +1,7 @@
 import { Component, OnInit, TestabilityRegistry } from '@angular/core';
 import { PostagemService } from '../service/postagem.service';
 import { Postagem } from '../model/postagem';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-feed',
@@ -9,6 +10,8 @@ import { Postagem } from '../model/postagem';
 })
 export class FeedComponent implements OnInit {
 
+  nome: string = localStorage.getItem('nome');
+  
   key = 'data'
   reverse =true
    
@@ -20,17 +23,26 @@ export class FeedComponent implements OnInit {
 
   titulo:string
 
-  constructor(private postagemService: PostagemService) { }
+  constructor(private postagemService: PostagemService, 
+    private router: Router,
+    private route: ActivatedRoute,
+    private locationPage: Location) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    let token = localStorage.getItem('token');
+
+    if(token == null){
+      alert('Faça o login antes de acessar a página feed');
+      this.router.navigate(['/login']);
+    }
+
     this.findallPostagens()
 
     let item:String = localStorage.getItem('delOk')
    
     if(item == "true"){
       this.alerta = true
-      localStorage.clear()
-
+      localStorage.clear();
       setTimeout(()=>{
         location.assign('/feed')
       }, 3000)
